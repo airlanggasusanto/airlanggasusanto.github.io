@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Username Repositories</title>
+  <style> 
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px; /* Adjust the width as needed */
+  height: 100vh;
+  background-color: black;
+  padding: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+}
+
+.navbar img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  border-radius: 50%;
+}
+
+#profile-name a,
+#profile-description {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+  bottom: 50px;
+}
+
+#profile-details {
+  position: auto; /* Updated property */
+  top: 100px; /* Adjust the distance from the bottom as needed */
+  text-align: center; /* Center horizontally */
+}
+
+#profile-details a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.repository {
+  width: 80%;
+  max-width: 800px;
+  margin-left: 220px; /* Adjust the margin as needed */
+}
+
+.repo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.repo-list li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.repo-list li:hover {
+  background-color: #e0e0e0;
+}
+
+.repo-name {
+  font-weight: bold;
+  font-size: 24px; /* Adjust the size as needed */
+}
+
+.repo-description {
+  font-size: 16px; /* Adjust the size as needed */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .navbar img {
+    max-width: 120px;
+  }
+
+  .repository {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <img id="profile-image" src="" alt="Profile Image">
+        <div id="profile-info">
+          <h2 id="profile-name"></h2>
+          <p id="profile-description"></p>
+          <div id="profile-details"></div>
+        </div>
+      </nav>
+
+      <div class="repository">
+        <h1>Projects</h1>
+        <ul id="repo-list" class="repo-list"></ul>
+      </div>
+  <script>
+    // GitHub username
+const username = 'airlanggasusanto';
+
+fetch(`https://api.github.com/users/${username}/repos`)
+  .then(response => response.json())
+  .then(data => {
+    const repoList = document.getElementById('repo-list');
+
+    data.forEach(repo => {
+      const listItem = document.createElement('li');
+      const name = document.createElement('div');
+      name.className = 'repo-name';
+      name.textContent = repo.name;
+      listItem.appendChild(name);
+
+      const description = document.createElement('div');
+      description.className = 'repo-description';
+      const repoDescription = repo.description || 'No description available';
+      description.textContent = repoDescription;
+      listItem.appendChild(description);
+
+      listItem.addEventListener('click', () => {
+        window.location.href = repo.html_url;
+      });
+
+      repoList.appendChild(listItem);
+    });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+
+// Fetch profile information using GitHub API
+fetch(`https://api.github.com/users/${username}`)
+  .then(response => response.json())
+  .then(data => {
+    const profileImage = document.getElementById('profile-image');
+    profileImage.src = data.avatar_url;
+    profileImage.alt = 'Profile Image';
+
+    const profileName = document.getElementById('profile-name');
+    profileName.textContent = data.name || username;
+    const profileLink = document.createElement('a');
+    profileLink.href = `https://github.com/${username}`;
+    profileLink.textContent = username;
+    profileName.innerHTML = '';
+    profileName.appendChild(profileLink);
+
+    const profileDescription = document.getElementById('profile-description');
+    profileDescription.textContent = data.bio || '';
+
+    const profileDetails = document.getElementById('profile-details');
+
+    const profileLinkElement = document.createElement('a');
+    profileLinkElement.href = data.html_url;
+    profileLinkElement.textContent = 'Visit Profile';
+    profileDetails.appendChild(profileLinkElement);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+  </script>
+</body>
+</html>
