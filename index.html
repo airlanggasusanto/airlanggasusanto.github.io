@@ -158,9 +158,13 @@ fetch(`https://api.github.com/users/${username}/repos`)
       description.textContent = repoDescription;
       listItem.appendChild(description);
 
-      listItem.addEventListener('click', () => {
-        window.location.href = repo.html_url;
-      });
+listItem.addEventListener('click', () => {
+  if (repo.homepage) {
+    window.location.href = repo.homepage; // Redirect to the website if available
+  } else {
+    window.location.href = repo.html_url; // Redirect to the repository if no website available
+  }
+});
 
       repoList.appendChild(listItem);
     });
