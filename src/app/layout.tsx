@@ -4,8 +4,8 @@ import "./globals.css";
 
 const kosugiMaru = Kosugi_Maru({
   subsets: ['latin'],
-  weight: ['400'], // Choose weights you need
-  display: 'swap',               // Improves performance
+  weight: ['400'],
+  display: 'swap', 
 });
 
 import { config } from '@fortawesome/fontawesome-svg-core'
