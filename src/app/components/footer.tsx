@@ -35,7 +35,7 @@ const Footer: React.FC <FooterProps> = ({ repos }) => {
           <div> • </div>
           <div>© 2024</div>
           <div> • </div>
-            <a className="break-words">Github Pages</a>
+            <a className="break-words">GitHub Pages</a>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           <a

@@ -7,6 +7,7 @@ interface MainContentProps {
 }
 
 const MainContent: React.FC<MainContentProps> = ({ repos }) => {
+  const html_url = repos[0]?.owner.html_url;
   return (
     <main className="mb-auto">
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -98,7 +99,7 @@ const MainContent: React.FC<MainContentProps> = ({ repos }) => {
 
       {/* View All Repos */}
       <div className="flex justify-end text-base font-medium leading-6">
-        <a href="https://github.com/microsoft" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" aria-label="All repos">
+        <a href={html_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400" aria-label="All repos">
           All Repos →
         </a>
       </div>
