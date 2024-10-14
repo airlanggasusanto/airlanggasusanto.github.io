@@ -16,7 +16,6 @@ const ThemeSwitcher: React.FC = () => {
         onClick={handleThemeSwitch}
       >
         {isDarkMode ? (
-          // Moon Icon (dark mode)
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -26,7 +25,6 @@ const ThemeSwitcher: React.FC = () => {
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
           </svg>
         ) : (
-          // Sun Icon (light mode)
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"

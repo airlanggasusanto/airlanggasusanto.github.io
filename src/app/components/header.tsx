@@ -20,7 +20,6 @@ const Header: React.FC<HeaderProps> = ({ githubUser }) => {
     >
       <div className="flex items-center justify-between">
         <div className="mr-3">
-          {/* GitHub FontAwesome Icon */}
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </div>
         <div className="hidden h-6 text-2xl font-semibold sm:block lowercase">@{githubUser.login}</div>

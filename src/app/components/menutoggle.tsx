@@ -34,7 +34,7 @@ const MenuToggle: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const overlayClasses = `fixed inset-0 z-50 h-full w-full bg-white dark:bg-gray-950 transition-transform duration-500 ${
+  const overlayClasses = `fixed inset-0 z-50 h-full w-full bg-white dark:bg-gray-950 transition-all duration-500 ease-in-out ${
     isMenuOpen ? 'translate-x-0 opacity-95' : 'translate-x-full opacity-0'
   }`;
 
