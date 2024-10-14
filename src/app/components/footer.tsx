@@ -1,12 +1,10 @@
-import { Repo } from '../types';
+import { GitHubUser } from '../types';
 
 interface FooterProps {
-    repos: Repo[];
+    githubUser: GitHubUser;
 }
   
-const Footer: React.FC <FooterProps> = ({ repos }) => {
-  const username = repos[0]?.owner.login;
-  const html_url = repos[0]?.owner.html_url;
+const Footer: React.FC <FooterProps> = ({ githubUser }) => {
   return (
     <footer>
       <div className="mt-16 flex flex-col items-center">
@@ -16,7 +14,7 @@ const Footer: React.FC <FooterProps> = ({ repos }) => {
             className="text-sm text-gray-500 transition hover:text-gray-600"
             target="_blank"
             rel="noopener noreferrer"
-            href={html_url}
+            href={githubUser.html_url}
           >
             <span className="sr-only">github</span>
             <svg
@@ -31,7 +29,7 @@ const Footer: React.FC <FooterProps> = ({ repos }) => {
           {/* Repeat for other social icons */}
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>@{username}</div>
+          <div className="lowercase">@{githubUser.login}</div>
           <div> • </div>
           <div>© 2024</div>
           <div> • </div>
