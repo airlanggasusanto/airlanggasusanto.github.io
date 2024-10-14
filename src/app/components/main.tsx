@@ -17,7 +17,7 @@ const MainContent: React.FC<MainContentProps> = ({ repos }) => {
             Latest Repos
           </h1>
           <p className="text-base sm:text-lg leading-7 text-gray-500 dark:text-gray-400">
-            A Git Pages created with Next.js and Tailwind.css
+            A GitHub Pages created with Next.js and Tailwind.css
           </p>
         </div>
 

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Kosugi_Maru } from 'next/font/google';
 import "./globals.css";
+import { Repo, fetchRepos } from "./types";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 const kosugiMaru = Kosugi_Maru({
   subsets: ['latin'],
@@ -20,16 +23,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const repos: Repo[] = await fetchRepos();
   return (
     <html lang="en">
-      <body
-        className={kosugiMaru.className}>
+    <body className={`${kosugiMaru.className} bg-white text-black antialiased dark:bg-gray-950 dark:text-white`}>
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+        <Header repos={repos} />
         {children}
+        <Footer repos={repos} />
+        </section>
       </body>
     </html>
   );

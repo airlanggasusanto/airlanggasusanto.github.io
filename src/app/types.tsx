@@ -31,7 +31,7 @@ export interface Repo {
   
   
 export async  function fetchRepos(): Promise<Repo[]> {
-    const response = await fetch('https://api.github.com/users/airlanggasusanto/repos?sort=created&per_page=5');
+    const response = await fetch('https://api.github.com/users/microsoft/repos?sort=created&per_page=5');
     if (!response.ok) {
       throw new Error('Failed to fetch repos');
     }
