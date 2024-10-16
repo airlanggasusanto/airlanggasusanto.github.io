@@ -14,7 +14,7 @@ const NotFound: React.FC = () => {
         <img
           src="./404.gif" 
           alt="Page not found illustration"
-          className="mx-2 mt-9 w-20 h-20"
+          className="mx-2 mt-9 w-20 h-20 dark:invert"
         />
         <span>4</span>
       </h1>
