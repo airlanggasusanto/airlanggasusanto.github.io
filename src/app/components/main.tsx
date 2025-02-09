@@ -8,7 +8,6 @@ interface MainContentProps {
 
 const MainContent: React.FC<MainContentProps> = ({ repos }) => {
   const html_url = repos[0]?.owner.html_url;
-  console.log(repos);
   return (
     <main className="mb-auto">
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -25,7 +24,9 @@ const MainContent: React.FC<MainContentProps> = ({ repos }) => {
 
         {/* Repos List */}
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-  {repos.map((repo) => (
+        {repos
+    .filter((repo) => repo.name !== "airlanggasusanto.github.io") 
+    .map((repo) => (
     <li key={repo.id} className="py-12">
       <article>
         <div className="space-y-4 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
