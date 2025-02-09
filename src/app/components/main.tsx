@@ -8,6 +8,7 @@ interface MainContentProps {
 
 const MainContent: React.FC<MainContentProps> = ({ repos }) => {
   const html_url = repos[0]?.owner.html_url;
+  console.log(repos);
   return (
     <main className="mb-auto">
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
