@@ -74,7 +74,7 @@ export default async function Page() {
                 className="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/airlangga-susanto-putra-21b178324/"
               >
                 <span className="sr-only">linkedin</span>
                 <svg
