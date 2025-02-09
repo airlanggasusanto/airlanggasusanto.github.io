@@ -21,8 +21,6 @@ const MainContent: React.FC<MainContentProps> = ({ repos }) => {
           </p>
         </div>
 
-
-        {/* Repos List */}
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
         {repos
     .filter((repo) => repo.name !== "airlanggasusanto.github.io") 
