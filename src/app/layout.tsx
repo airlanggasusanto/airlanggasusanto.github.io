@@ -4,6 +4,7 @@ import "./globals.css";
 import { GitHubUser, fetchGithubUser } from "./types";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { ThemeProvider } from 'next-themes';
 
 const kosugiMaru = Kosugi_Maru({
   subsets: ['latin'],
@@ -29,14 +30,18 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const githubUser: GitHubUser = await fetchGithubUser();
+  
   return (
-    <html lang="en">
-    <body className={`${kosugiMaru.className} bg-white text-black antialiased dark:bg-gray-950 dark:text-white`}>
-      <section className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-        <Header githubUser={githubUser} />
-        {children}
-        <Footer githubUser={githubUser} />
-        </section>
+    <html lang="en" suppressHydrationWarning>
+
+      <body className={`${kosugiMaru.className} bg-white text-black antialiased dark:bg-gray-950 dark:text-white`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <section className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+            <Header githubUser={githubUser} />
+            {children}
+            <Footer githubUser={githubUser} />
+          </section>
+        </ThemeProvider>
       </body>
     </html>
   );
