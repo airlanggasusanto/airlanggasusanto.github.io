@@ -12,7 +12,7 @@ const NotFound: React.FC = () => {
       <h1 className={`flex items-center justify-center text-9xl font-bold text-gray-900 dark:text-gray-100   ${pacifico.className}`}>
       <span>4</span>
         <img
-          src="./404.gif" 
+          src="./github.gif" 
           alt="Page not found illustration"
           className="mx-2 mt-9 w-20 h-20 dark:invert"
         />

@@ -93,8 +93,6 @@ const MainContent: React.FC<MainContentProps> = ({ repos }) => {
   ))}
 </ul>
 
-
-
       </div>
 
       {/* View All Repos */}
