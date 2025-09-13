@@ -1,4 +1,4 @@
-import { GITHUB_USERNAME } from "@/config";
+import { GITHUB_USERNAME } from "@/config/config";
 
 export interface Repo {
     id: number;
