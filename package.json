@@ -1,5 +1,5 @@
 {
-  "name": "something",
+  "name": "GithubPages",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,10 +14,10 @@
     "@fortawesome/free-regular-svg-icons": "^7.0.1",
     "@fortawesome/free-solid-svg-icons": "^7.0.1",
     "@fortawesome/react-fontawesome": "^3.0.2",
-    "next": "14.2.15",
+    "next": "^15.5.3",
     "next-themes": "^0.4.6",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@types/node": "^20",

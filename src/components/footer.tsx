@@ -1,10 +1,8 @@
-import { GitHubUser } from '../types';
+import { getStaticUser } from '@/lib/static-data';
 
-interface FooterProps {
-    githubUser: GitHubUser;
-}
-  
-const Footer: React.FC <FooterProps> = ({ githubUser }) => {
+const Footer: React.FC = () => {
+  const user = getStaticUser();
+
   return (
     <footer>
       <div className="mt-16 flex flex-col items-center">
@@ -13,7 +11,7 @@ const Footer: React.FC <FooterProps> = ({ githubUser }) => {
             className="text-sm text-gray-500 transition hover:text-gray-600"
             target="_blank"
             rel="noopener noreferrer"
-            href={githubUser.html_url}
+            href={user.html_url}
           >
             <span className="sr-only">github</span>
             <svg
@@ -27,11 +25,11 @@ const Footer: React.FC <FooterProps> = ({ githubUser }) => {
           </a>
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div className="lowercase">@{githubUser.login}</div>
+          <div className="lowercase">@{user.login}</div>
           <div> • </div>
           <div>© 2024</div>
           <div> • </div>
-            <a className="break-words">GitHub Pages</a>
+          <a className="break-words">GitHub Pages</a>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           <a

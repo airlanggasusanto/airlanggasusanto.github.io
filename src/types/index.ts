@@ -1,31 +1,20 @@
-import { GITHUB_USERNAME } from "@/config/config";
-
 export interface Repo {
-    id: number;
-    name: string;
-    owner: {
-      login: string;
-      html_url: string;
-    };
+  id: number;
+  name: string;
+  owner: {
+    login: string;
     html_url: string;
-    description: string | null
-    created_at: string;
-    homepage: string | null;
-    stargazers_count: number;
-    watchers_count: number;
-    forks_count: number;
-    open_issues_count: number;
-} 
-  
-export async  function fetchRepos(): Promise<Repo[]> {
-    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=created&per_page=5`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch repos');
-    }
-    const data: Repo[] = await response.json();
-    return data;
+  };
+  html_url: string;
+  description: string | null;
+  created_at: string;
+  homepage: string | null;
+  stargazers_count: number;
+  watchers_count: number;
+  forks_count: number;
+  open_issues_count: number;
 }
-  
+
 export interface GitHubUser {
   login: string;
   id: number;
@@ -59,13 +48,4 @@ export interface GitHubUser {
   following: number;
   created_at: string;
   updated_at: string;
-}
-
-export async  function fetchGithubUser(): Promise<GitHubUser> {
-  const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch repos');
-  }
-  const data: GitHubUser = await response.json();
-  return data;
 }

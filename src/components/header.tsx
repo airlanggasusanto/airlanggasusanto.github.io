@@ -1,18 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { GitHubUser } from '../types';
-import ThemeSwitcher from './themeswitcher';
-import MenuToggle from './menutoggle';
-
-interface HeaderProps {
-    githubUser: GitHubUser;
-}
+import ThemeSwitcher from '@/components/themeswitcher';
+import MenuToggle from '@/components/menutoggle';
+import { getStaticUser } from '@/lib/static-data';
   
-const Header: React.FC<HeaderProps> = ({ githubUser }) => {
+const Header: React.FC = () => {
+  const user = getStaticUser();
+  
   return (
     <header className="flex items-center w-full justify-between py-10">
     <a
-      href={githubUser.html_url}
+      href={user.html_url}
       className="break-words"
       aria-label="GitHub"
       target="_blank"
@@ -22,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ githubUser }) => {
         <div className="mr-3">
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </div>
-        <div className="hidden h-6 text-2xl font-semibold sm:block lowercase">@{githubUser.login}</div>
+        <div className="hidden h-6 text-2xl font-semibold sm:block lowercase">@{user.login}</div>
       </div>
     </a>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6">

@@ -1,8 +1,8 @@
 import React from 'react';
-import { fetchGithubUser, GitHubUser } from '@/types';
+import { getStaticUser } from '@/lib/static-data';
 
 export default async function Page() {
-  const githubUser: GitHubUser = await fetchGithubUser();
+    const user = getStaticUser();
   return (
     <main className="mb-auto">
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -21,18 +21,18 @@ export default async function Page() {
               height="192"
               decoding="async"
               className="h-48 w-48 rounded-full"
-              src={githubUser.avatar_url}
+              src={user.avatar_url}
               style={{ color: 'transparent' }}
             />
           <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">
-            {githubUser.name ? (
-              <span className="capitalize">{githubUser.name}</span>
+            {user.name ? (
+              <span className="capitalize">{user.name}</span>
             ) : (
-              <span className="lowercase">@{githubUser.login}</span>
+              <span className="lowercase">@{user.login}</span>
             )}
           </h3>
           <div className="text-gray-500 dark:text-gray-400 text-center">
-            {githubUser.bio ? githubUser.bio : "Someone seems too shy to say something."}
+            {user.bio ? user.bio : "Someone seems too shy to say something."}
           </div>
             <div className="flex space-x-3 pt-6">
               <a
@@ -57,7 +57,7 @@ export default async function Page() {
                 className="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href={githubUser.html_url}
+                href={user.html_url}
               >
                 <span className="sr-only">github</span>
                 <svg
@@ -74,7 +74,7 @@ export default async function Page() {
                 className="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/airlangga-susanto-putra-21b178324/"
+                href="https://www.linkedin.com/company/linkedin/"
               >
                 <span className="sr-only">linkedin</span>
                 <svg

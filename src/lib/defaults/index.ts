@@ -1,0 +1,38 @@
+import type { GitHubUser, Repo } from "@/types";
+
+export const DEFAULT_USER: GitHubUser = {
+  login: "unknown",
+  id: 0,
+  node_id: "",
+  avatar_url: "https://avatars.githubusercontent.com/u/0?v=4",
+  gravatar_id: "",
+  url: "#",
+  html_url: "#",
+  followers_url: "",
+  following_url: "",
+  gists_url: "",
+  starred_url: "",
+  subscriptions_url: "",
+  organizations_url: "",
+  repos_url: "",
+  events_url: "",
+  received_events_url: "",
+  type: "User",
+  site_admin: false,
+  name: "Unknown",
+  company: null,
+  blog: "",
+  location: null,
+  email: null,
+  hireable: null,
+  bio: "Unavailable",
+  twitter_username: null,
+  public_repos: 0,
+  public_gists: 0,
+  followers: 0,
+  following: 0,
+  created_at: new Date().toISOString(),
+  updated_at: new Date().toISOString(),
+};
+
+export const DEFAULT_REPOS: Repo[] = [];

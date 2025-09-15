@@ -1,10 +1,8 @@
-import MainContent from "../components/main";
-import { Repo, fetchRepos } from "../types";
+import MainContent from "@/components/main";
 
 export default async function Home() {
-  const repos: Repo[] = await fetchRepos();
 
   return (
-      <MainContent repos={repos} />
+      <MainContent />
   );
 }
