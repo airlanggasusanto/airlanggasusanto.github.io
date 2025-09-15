@@ -1,6 +1,7 @@
-import { getStaticUser } from '@/lib/static-data';
+import { initializeStaticData, getStaticUser } from '@/lib/static-data';
 
-const Footer: React.FC = () => {
+const Footer = async () => {
+  await initializeStaticData();
   const user = getStaticUser();
 
   return (

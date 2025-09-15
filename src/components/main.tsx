@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDot , faObjectUngroup, faStar, faEye} from '@fortawesome/free-regular-svg-icons';
-import { getStaticRepos } from '@/lib/static-data';
+import { initializeStaticData, getStaticRepos } from '@/lib/static-data';
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 
-const MainContent: React.FC = () => {
+const MainContent = async() => {
+  await initializeStaticData();
   const repos = getStaticRepos();
 
   const html_url = repos[0]?.owner.html_url ?? "";
@@ -98,7 +99,7 @@ const MainContent: React.FC = () => {
                 No repositories found
               </h3>
               <p className="text-gray-500 dark:text-gray-400 mb-6">
-                This user doesn't have any public repositories yet, but you can check out some amazing projects instead.
+                This user doesn&apos;t have any public repositories yet, but you can check out some amazing projects instead.
               </p>
               <div className="space-y-3">
                 <a

@@ -1,7 +1,8 @@
 import React from 'react';
-import { getStaticUser } from '@/lib/static-data';
+import { initializeStaticData, getStaticUser } from '@/lib/static-data';
 
 export default async function Page() {
+    await initializeStaticData();
     const user = getStaticUser();
   return (
     <main className="mb-auto">

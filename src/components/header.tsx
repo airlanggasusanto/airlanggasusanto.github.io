@@ -2,9 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import ThemeSwitcher from '@/components/themeswitcher';
 import MenuToggle from '@/components/menutoggle';
-import { getStaticUser } from '@/lib/static-data';
+import { initializeStaticData, getStaticUser } from '@/lib/static-data';
   
-const Header: React.FC = () => {
+const Header = async()=> {
+  await initializeStaticData();
   const user = getStaticUser();
   
   return (
