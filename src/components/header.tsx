@@ -17,11 +17,11 @@ const Header = async()=> {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="flex items-center justify-between">
-        <div className="mr-3">
-          <FontAwesomeIcon icon={faGithub} size="2x" />
+      <div className="flex items-center">
+        <div className="mr-3 w-8 h-8 flex items-center justify-center">
+          <FontAwesomeIcon icon={faGithub} size="2x" className="text-gray-900 dark:text-white" />
         </div>
-        <div className="hidden h-6 text-2xl font-semibold sm:block lowercase">@{user.login}</div>
+        <div className="hidden h-6 text-2xl font-semibold md:block lowercase">@{user.login}</div>
       </div>
     </a>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6">

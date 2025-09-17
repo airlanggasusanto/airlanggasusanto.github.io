@@ -1,5 +1,6 @@
 import type { Repo, GitHubUser } from "@/types";
 import { fetchRepos, fetchGithubUser } from "@/lib/fetcher";
+import { DEFAULT_REPOS, DEFAULT_USER } from "@/lib/defaults";
 
 let staticDataCache: {
   repos: Repo[];
@@ -22,21 +23,23 @@ export async function initializeStaticData() {
 
 export function getStaticRepos(): Repo[] {
   if (!staticDataCache) {
-    throw new Error('Static data not initialized. Call initializeStaticData() first.');
-  }
+      return DEFAULT_REPOS
+    }
   return staticDataCache.repos;
 }
 
 export function getStaticUser(): GitHubUser {
   if (!staticDataCache) {
-    throw new Error('Static data not initialized. Call initializeStaticData() first.');
+      return DEFAULT_USER
   }
   return staticDataCache.user;
 }
 
 export function getStaticData() {
   if (!staticDataCache) {
-    throw new Error('Static data not initialized. Call initializeStaticData() first.');
-  }
+    return {
+      repos: DEFAULT_REPOS,
+      user: DEFAULT_USER,
+    };  }
   return staticDataCache;
 }

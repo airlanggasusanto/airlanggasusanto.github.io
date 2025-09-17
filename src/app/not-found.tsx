@@ -8,7 +8,7 @@ const pacifico = Pacifico({
 
 const NotFound: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] py-16 text-center">
       <h1 className={`flex items-center justify-center text-9xl font-bold text-gray-900 dark:text-gray-100   ${pacifico.className}`}>
       <span>4</span>
         <img
