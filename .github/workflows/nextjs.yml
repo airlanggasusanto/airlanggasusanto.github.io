@@ -27,6 +27,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Print trigger
+        run: echo "Triggered by ${{ github.event_name }}"
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
